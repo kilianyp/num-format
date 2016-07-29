@@ -1,3 +1,5 @@
+#pragma once
+
 #include "numtype.h"
 
 
@@ -93,6 +95,8 @@ public:
     };
 
     //CASTING
+    //returns for other format the value. The constructor will then convert it
+    //correctly
     template< bool TDebug2, unsigned TMant_dig2, unsigned TExpo_dig2>
     operator FloatBase<TDebug2, TMant_dig2, TExpo_dig2>() {
         return _value;

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <math.h>
 
@@ -14,6 +16,30 @@ public:
         _value = assign.getValue();
         return *this;
     }
+
+
+    //prefix
+    virtual NumFormat<type> & operator ++ () {
+        _value = this->getValue() + 1.0;
+        return *this;
+    }
+
+    virtual NumFormat<type> & operator -- () {
+        _value = this->getValue() - 1.0;
+        return *this;
+    }
+
+    //Postfix not properly implemented yet
+    virtual NumFormat<type> & operator ++ (int) {
+        _value = this->getValue() + 1.0;
+        return *this;
+    }
+
+    virtual NumFormat<type> & operator -- (int) {
+        type tmp = this->getValue() - 1.0;
+        return *this;
+    }
+
 
     virtual NumFormat<type> & operator += (NumFormat<type> addend) {
         _value = this->getValue() + addend.getValue();
@@ -51,6 +77,7 @@ public:
         return this->getValue() / dividend.getValue();
     }
 
+    //comparisons
     virtual bool operator > (NumFormat<type> cmp) {
         return this->getValue() > cmp.getValue();
     }
