@@ -98,6 +98,10 @@ public:
         return this->getValue() == cmp.getValue();
     }
 
+    virtual bool operator != (NumFormat<type> cmp) {
+        return this->getValue() != cmp.getValue();
+    }
+
     virtual bool operator && (NumFormat<type> cmp) {
         return this->getValue() && cmp.getValue();
     }
@@ -106,11 +110,12 @@ public:
         return this->getValue() || cmp.getValue();
     }
 
+    //ostream
     friend std::ostream& operator<< (std::ostream &out, NumFormat<type> &value) {
         value.print(out);
         return out;
     };
-
+    //this function can be overloaded
     virtual void print(std::ostream& out) const {
         out << " " << _value << " ";
     }
