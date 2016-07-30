@@ -46,7 +46,7 @@ public:
         return pow(2,getMinValue());
     }
 
-    double convertTo(double value) {
+    double convertTo(double value) const {
         uFloat helper;
         helper.f = value;
 
@@ -88,7 +88,7 @@ public:
         return value;
     };
 
-    virtual void print(std::ostream& out) {
+    virtual void print(std::ostream& out) const{
         out << " " << _value << " ";
         if(TDebug)
         {

@@ -8,9 +8,9 @@ class NumFormat {
 public:
     NumFormat(type value) : _value(value) {};
     // it is not possible to make pure otherwise linking error
-    virtual type getValue() {return _value;};
+    virtual type getValue() const {return _value;};
 
-    virtual type convertTo(type value) {return _value;};
+    virtual type convertTo(type value) const {return _value;};
 
     virtual NumFormat<type> & operator = (NumFormat<type> assign) {
         //printf("assignment %f\n", assign.getValue());
@@ -70,19 +70,19 @@ public:
     }
 
     //format this is saved to is not clear yet, dont convert
-    virtual type operator + (NumFormat<type> addend) {
+    virtual type operator + (NumFormat<type> addend) const{
         return this->getValue() + addend.getValue();
     }
 
-    virtual type operator - (NumFormat<type> subtrahend) {
+    virtual type operator - (NumFormat<type> subtrahend) const{
         return this->getValue() - subtrahend.getValue();
     }
 
-    virtual type operator * (NumFormat<type> multiplicand) {
+    virtual type operator * (NumFormat<type> multiplicand) const{
         return this->getValue() * multiplicand.getValue();
     }
 
-    virtual type operator / (NumFormat<type> dividend) {
+    virtual type operator / (NumFormat<type> dividend) const{
         return this->getValue() / dividend.getValue();
     }
 
@@ -120,7 +120,7 @@ public:
     }
 
     //ostream
-    friend std::ostream& operator<< (std::ostream &out, NumFormat<type> &value) {
+    friend std::ostream& operator<< (std::ostream &out, const NumFormat<type> &value) {
         value.print(out);
         return out;
     };

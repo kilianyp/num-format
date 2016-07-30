@@ -78,6 +78,17 @@ int main() {
     //constructor is called
     test23 = test23 + 1551521126878678612312311223125123123124.0;
     std::cout << 25 << test23 << std::endl;
+    const float test24 = 12.0f;
+    Float test25 = test24;
+    std::cout << 26 << test25 << std::endl;
+    test25 = test25 + test24;
+    std::cout << 27 << test25 << std::endl;
+    test25 /= test24;
+    std::cout << 27 << test25 << std::endl;
+
+
+
+
 
 
 
