@@ -125,6 +125,23 @@ protected:
     type _value;
 };
 
+//allow different order e.g. float + Float
+template<typename type, typename any_type> type operator + (any_type add_1, NumFormat<type> add_2) {
+    return add_1 + add_2.getValue();
+}
+
+template<typename type, typename any_type> type operator - (any_type sub_1, NumFormat<type> sub_2) {
+    return sub_1 - sub_2.getValue();
+}
+
+template<typename type, typename any_type> type operator * (any_type mul_1, NumFormat<type> mul_2) {
+    return mul_1 * mul_2.getValue();
+}
+
+template<typename type, typename any_type> type operator / (any_type div_1, NumFormat<type> div_2) {
+    return div_1 / div_2.getValue();
+}
+
 
 
 
