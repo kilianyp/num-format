@@ -6,6 +6,10 @@
 template < typename type>
 class NumFormat {
 public:
+
+    //allow just declaration without initilization, initialize to zero
+    NumFormat() {_value = 0;};
+
     NumFormat(type value) : _value(value) {};
     // it is not possible to make pure otherwise linking error
     virtual type getValue() const {return _value;};

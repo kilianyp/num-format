@@ -84,7 +84,10 @@ int main() {
     test25 = test25 + test24;
     std::cout << 27 << test25 << std::endl;
     test25 /= test24;
-    std::cout << 27 << test25 << std::endl;
+    std::cout << 28 << test25 << std::endl;
+    Float test26;
+    std::cout << 29 << test26 << std::endl;
+
 
 
 

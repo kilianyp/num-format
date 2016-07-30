@@ -25,6 +25,9 @@ class FloatBase : public NumFormat<double>
 {
 public:
 
+    //allow just declaration without initilization, is initilized to zero by NumFormat class
+    FloatBase() : NumFormat() {};
+
     FloatBase(double value) : NumFormat(value) {
         //printf("constructor\n");
         _value = TDebug ? value : convertTo(value);
