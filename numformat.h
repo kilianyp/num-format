@@ -14,6 +14,8 @@ public:
     // it is not possible to make pure otherwise linking error
     virtual type getValue() const {return _value;};
 
+    virtual void setValue(type value) {_value = value;}
+
     virtual type convertTo(type value) const {return _value;};
 
     virtual NumFormat<type> & operator = (NumFormat<type> assign) {
@@ -72,6 +74,7 @@ public:
         _value = convertTo(this->getValue() / dividend.getValue());
         return *this;
     }
+
 
     //format this is saved to is not clear yet, dont convert
     virtual type operator + (NumFormat<type> addend) const{
@@ -132,6 +135,7 @@ public:
     virtual void print(std::ostream& out) const {
         out << " " << _value << " ";
     }
+
 
 
 protected:

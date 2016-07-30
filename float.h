@@ -101,6 +101,13 @@ public:
     };
 
 
+    //unary operator
+    friend FloatBase operator-(FloatBase &negate) {
+        negate.setValue(negate.convertTo(negate.getValue() * -1));
+        return negate;
+    }
+
+
     //CASTING
     //returns for other format the value. The constructor will then convert it
     //correctly
