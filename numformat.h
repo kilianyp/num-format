@@ -10,57 +10,66 @@ public:
     // it is not possible to make pure otherwise linking error
     virtual type getValue() {return _value;};
 
+    virtual type convertTo(type value) {return _value;};
 
     virtual NumFormat<type> & operator = (NumFormat<type> assign) {
-        //printf("123 %f", assign.getValue());
-        _value = assign.getValue();
+        //printf("assignment %f\n", assign.getValue());
+        _value = convertTo(assign.getValue());
+        return *this;
+    }
+
+    //is not called
+    template<typename any_type> NumFormat<type> & operator = (any_type assign) {
+        //printf("assignment type %f\n", assign);
+        _value = convertTo(assign);
         return *this;
     }
 
 
     //prefix
     virtual NumFormat<type> & operator ++ () {
-        _value = this->getValue() + 1.0;
+        _value = convertTo(this->getValue() + 1.0);
         return *this;
     }
 
     virtual NumFormat<type> & operator -- () {
-        _value = this->getValue() - 1.0;
+        _value = convertTo(this->getValue() - 1.0);
         return *this;
     }
 
     //Postfix not properly implemented yet
     virtual NumFormat<type> & operator ++ (int) {
-        _value = this->getValue() + 1.0;
+        _value = convertTo(this->getValue() + 1.0);
         return *this;
     }
 
     virtual NumFormat<type> & operator -- (int) {
-        type tmp = this->getValue() - 1.0;
+        type tmp = convertTo(this->getValue() - 1.0);
         return *this;
     }
 
 
     virtual NumFormat<type> & operator += (NumFormat<type> addend) {
-        _value = this->getValue() + addend.getValue();
+        _value = convertTo(this->getValue() + addend.getValue());
         return *this;
     }
 
     virtual NumFormat<type> & operator -= (NumFormat<type> subtrahend) {
-        _value = this->getValue() - subtrahend.getValue();
+        _value = convertTo(this->getValue() - subtrahend.getValue());
         return *this;
     }
 
     virtual NumFormat<type> & operator *= (NumFormat<type> multiplicand) {
-        _value = this->getValue() * multiplicand.getValue();
+        _value = convertTo(this->getValue() * multiplicand.getValue());
         return *this;
     }
 
     virtual NumFormat<type> & operator /= (NumFormat<type> dividend) {
-        _value = this->getValue() / dividend.getValue();
+        _value = convertTo(this->getValue() / dividend.getValue());
         return *this;
     }
 
+    //format this is saved to is not clear yet, dont convert
     virtual type operator + (NumFormat<type> addend) {
         return this->getValue() + addend.getValue();
     }

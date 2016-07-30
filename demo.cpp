@@ -29,34 +29,57 @@ int main() {
     Float test16 = test13 * test_int;
 
 
-
     std::cout.precision(15);
-    std::cout << test2 << std::endl;
-    std::cout << test3 << std::endl;
-    std::cout << test4 << std::endl;
-    std::cout << test5 << std::endl;
-    std::cout << test6 << std::endl;
-    std::cout << test1 << std::endl;
-    std::cout << test7 << std::endl;
-    std::cout << test8 << std::endl;
-    std::cout << test9 << std::endl;
-    std::cout << test10 << std::endl;
+    std::cout << 1 << test2 << std::endl;
+    std::cout << 2 << test3 << std::endl;
+    std::cout << 3 << test4 << std::endl;
+    std::cout << 4 << test5 << std::endl;
+    std::cout << 5 << test6 << std::endl;
+    std::cout << 6 << test1 << std::endl;
+    std::cout << 7 << test7 << std::endl;
+    std::cout << 8 << test8 << std::endl;
+    std::cout << 9 << test9 << std::endl;
+    std::cout << 10 << test10 << std::endl;
     //std::cout << test11 << std::endl;
-    std::cout << test13 << std::endl;
-    std::cout << test14 << std::endl;
+    std::cout << 11 << test13 << std::endl;
+    std::cout << 12 << test14 << std::endl;
     printf("%f\n", max);
-    std::cout << test15 << std::endl;
-    std::cout << test16 << std::endl;
+    std::cout << 13 << test15 << std::endl;
+    std::cout << 14 << test16 << std::endl;
     float test18 = 2.001;
-    Float test17 = 125471205798123;
+    //calls constructor
+    Float test17 = 125471205791123;
+    //calls cast
     Float16 test19 = test17;
+    //calls cast
     Float test20 = test19;
-    if(test17 >= test18) {
-        printf("true %f\n", test18);
-        std::cout << test17 << std::endl;
-    }
-    std::cout << test19 << std::endl;
-    std::cout << test20 << std::endl;
+    std::cout << 15 << test17 << std::endl;
+    std::cout << 16 << test19 << std::endl;
+    std::cout << 17 << test20 << std::endl;
+    Float test21 = 14.152f;
+    std::cout << 18 << test21++ <<std::endl;
+    //calls constructor
+    Float test22 = (++test21) * 123.123f * test21;
+    std::cout << 19 << test22 << std::endl;
+    test22 *= 111238712;
+    test22 *= 111231237812638712;
+    std::cout << 20 << test22 << std::endl;
+    test22 *= 111231237812638712;
+    std::cout << 21 << test22 << std::endl;
+    Float test23 = test21;
+    std::cout << 22 << test23 << std::endl;
+    //constructor is called
+    //assignment of Numtype is called
+    test23 = 12454.0f *  test23;
+    std::cout << 23 << test23 << std::endl;
+    //constructor is called again
+    test23 =  test23 / 12454.0f;
+    std::cout << 24 << test23 << std::endl;
+    //constructor is called
+    test23 = test23 + 1551521126878678612312311223125123123124.0;
+    std::cout << 25 << test23 << std::endl;
+
+
 
 
 }

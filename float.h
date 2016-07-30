@@ -1,6 +1,6 @@
 #pragma once
 
-#include "numtype.h"
+#include "numformat.h"
 
 
 // IEEE 754 standard of doube precision
@@ -21,10 +21,12 @@ typedef union {
 
 
 template< bool TDebug, unsigned TMant_dig, unsigned TExpo_dig>
-class FloatBase : public NumFormat<double> {
+class FloatBase : public NumFormat<double>
+{
 public:
 
     FloatBase(double value) : NumFormat(value) {
+        //printf("constructor\n");
         _value = TDebug ? value : convertTo(value);
     };
 
@@ -44,7 +46,7 @@ public:
         return pow(2,getMinValue());
     }
 
-    static double convertTo(double value) {
+    double convertTo(double value) {
         uFloat helper;
         helper.f = value;
 
@@ -86,13 +88,15 @@ public:
         return value;
     };
 
-    virtual void print(std::ostream& out) const {
+    virtual void print(std::ostream& out) {
         out << " " << _value << " ";
         if(TDebug)
         {
-            out << " " << convertTo(_value) << " " << (float)(_value) << " ";
+            const float value = convertTo(_value);
+            out << " " << value << " " << (float)(_value) << " ";
         }
     };
+
 
     //CASTING
     //returns for other format the value. The constructor will then convert it

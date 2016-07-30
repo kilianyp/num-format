@@ -1,2 +1,2 @@
-demo: demo.cpp float.h numtype.h
+demo: demo.cpp float.h numformat.h
 	g++ $< -o $@
